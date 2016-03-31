@@ -13,14 +13,15 @@ from .forms import WordForm
 
 def index(request):
 
-    # create a form instance and populate it with data from the request:
-    form = WordForm(request.GET)
-    # check whether it's valid:
-    print 'hey man'
-    # if form.is_valid():
-    #     # process the data in form.cleaned_data as required
-    #     ### inspect the form
-    #     print form
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = WordForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            print form
+
+    else:
+        form = WordForm()
 
     return render(request, 'index.html', {'form': form, 'wordnet': {} })
 
