@@ -4,11 +4,9 @@ from nltk.corpus import wordnet as wn
 from .models import Greeting
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-
-import logging
-logger = logging.getLogger(__name__)
-
 from .forms import WordForm
+import nltk
+nltk.download()
 
 def index(request):
 
