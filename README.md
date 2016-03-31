@@ -1,21 +1,27 @@
-$ pip install -r requirements.txt
+To run locally and ouptut logs to stdout
 
-$ createdb python_getting_started
+    $ python manage.py runserver
 
-$ python manage.py migrate
-$ python manage.py collectstatic
+Install Deps
 
-$ heroku local
-```
+    $ pip install -r requirements.txt
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Deploying to Heroku
+Db Admin & app Setup
 
-```sh
-$ heroku create
-$ git push heroku master
+    $ createdb python_getting_started
+    $ python manage.py migrate
+    $ python manage.py collectstatic
 
-$ heroku run python manage.py migrate
-$ heroku open
-```
+Running a Heroku Process locally
+
+    $ heroku local web
+
+
+Deploying to Heroku
+
+    $ git push heroku master
+
+Open deployed application
+
+    $ heroku open
