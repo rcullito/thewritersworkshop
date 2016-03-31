@@ -23,6 +23,7 @@ def index(request):
 
     else:
         form = WordForm()
+        searchWordDefinitions = []
 
     return render(request, 'index.html', {'form': form, 'definitions': searchWordDefinitions })
 
