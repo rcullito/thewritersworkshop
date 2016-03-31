@@ -4,13 +4,19 @@
 {% block content %}
 
 <div class="container">
-  <h1>A Better Way of Finding Related Words</h1>
+  <h1>The Writer's Workshop</h1>
 
+  <h3>1. Beyond Synonyms</h3>
   <form action="/" method="post">
       {% csrf_token %}
       {{ form }}
       <input type="submit" value="Search" />
   </form>
+
+
+  {% for definition in definitions  %}
+      <li>{{ definition }}</li>
+  {% endfor %}
 
 </div>
 {% endblock %}

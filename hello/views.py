@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from nltk.corpus import wordnet as wn
 from .models import Greeting
-
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
@@ -18,12 +17,14 @@ def index(request):
         form = WordForm(request.POST)
         # check whether it's valid:
         if form.is_valid():
-            print form
+            searchword =  form.cleaned_data.get('your_word')
+            possiblesynsets = wn.synsets(searchword)
+            searchWordDefinitions = [synset.definition() for synset in possiblesynsets]
 
     else:
         form = WordForm()
 
-    return render(request, 'index.html', {'form': form, 'wordnet': {} })
+    return render(request, 'index.html', {'form': form, 'definitions': searchWordDefinitions })
 
 
 
